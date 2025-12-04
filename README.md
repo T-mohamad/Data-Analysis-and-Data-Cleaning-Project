@@ -43,9 +43,49 @@ The goal is to transform raw, messy data into clean datasets and extract meaning
    - Grouping data by categories for deeper insights.
 5. **Visualization**
    - Bar charts, scatter plots, box plots to communicate findings.
+
+📂 CSV File 1: Raw Sales Data (Messy Dataset)
+This file simulates a dataset before cleaning.
+CustomerID,Name,Age,PurchaseAmount,Date,Region
+101, John Smith ,29,250,2023-01-15,North
+102,Mary-Jane,NaN,300,2023/02/20,East
+103,Ali Hassan,35,,2023-03-05,West
+104,John Smith,29,250,2023-01-15,North
+105,Sara   ,27,400,2023-04-10,South
+106,Ahmed Ali,40,500,2023-05-12,East
+107,,33,350,2023-06-01,West
+
+
+👉 Problems here:
+- Missing values (NaN, empty cells).
+- Duplicate row (CustomerID 104 same as 101).
+- Inconsistent date formats (2023-01-15 vs 2023/02/20).
+- Extra spaces in names (John Smith , Sara   ).
+- Missing customer name (row 107).
+
+📂 CSV File 2: Cleaned Sales Data (After Cleaning)
+This file shows the dataset after cleaning.
+CustomerID,Name,Age,PurchaseAmount,Date,Region
+101,John Smith,29,250,2023-01-15,North
+102,Mary Jane,30,300,2023-02-20,East
+103,Ali Hassan,35,275,2023-03-05,West
+105,Sara,27,400,2023-04-10,South
+106,Ahmed Ali,40,500,2023-05-12,East
+107,Unknown,33,350,2023-06-01,West
+
+
+👉 Fixes applied:
+- Removed duplicate row.
+- Standardized date format (YYYY-MM-DD).
+- Filled missing values (e.g., Age for Mary Jane set to 30, PurchaseAmount for Ali Hassan set to 275).
+- Trimmed spaces in names.
+- Replaced missing name with "Unknown".
+
+
 ## 🧰 Data Cleaning Tools
 
-While Python is powerful for automation and reproducibility, many organizations also rely on **Excel, Power BI, and Tableau** for data cleaning and preparation. This project highlights how these tools can be used:
+While Python is powerful for automation and reproducibility, many organizations also rely on **Excel, Power BI, and Tableau** for data cleaning and preparation.
+This project highlights how these tools can be used:
 
 ### 🔹 Microsoft Excel
 - **Remove Duplicates**: Quickly identify and delete duplicate rows.
